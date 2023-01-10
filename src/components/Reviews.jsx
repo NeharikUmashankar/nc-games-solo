@@ -32,6 +32,7 @@ const Reviews = () => {
                 game={game}
                 voteMessage={voteMessage}
                 commentMessage={commentMessage}
+                key={game.review_id}
               ></Gamecard>
             );
           })}

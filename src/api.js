@@ -9,3 +9,9 @@ export const getReviews = () => {
     return info;
   });
 };
+
+export const getSingleReview = (ID) => {
+  return mainAPI.get(`/reviews/${ID}`).then((info) => {
+    return info;
+  });
+};
