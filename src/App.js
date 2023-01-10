@@ -1,11 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from './components/Header';
+import "./App.css";
+import Header from "./components/Header";
+import DisplayBody from "./components/DisplayBody";
+import { Routes, Route } from "react-router-dom";
+import Reviews from "./components/Reviews";
 
 function App() {
   return (
     <div className="App">
-      <Header header = "The many reviews of NC's games"></Header>
+      <Header header="The many reviews of NC's games"></Header>
+      <Routes>
+        <Route path="/" element={<DisplayBody />}></Route>
+        <Route path="/reviews" element={<Reviews />}></Route>
+      </Routes>
     </div>
   );
 }
