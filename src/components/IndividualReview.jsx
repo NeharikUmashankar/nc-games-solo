@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getSingleReview } from "../api";
+import { Link } from "react-router-dom";
 
 const IndividualReview = () => {
   const { review_id } = useParams();
@@ -42,6 +43,9 @@ const IndividualReview = () => {
         <br></br>
         <br></br>
         <h3>{voteMessage}</h3>
+        <Link to={`/reviews/${review_id}/comments`}>
+          <p>View comments</p>
+        </Link>
       </div>
     );
   }

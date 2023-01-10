@@ -12,36 +12,32 @@ const Reviews = () => {
     });
   }, []);
 
-  // if loading return load message (before main code)
+  if (Loading) return <p>Loading....</p>;
 
-  if (!Loading) {
-    return (
-      <div>
-        <ol>
-          {gameReviews.map((game) => {
-            const voteMessage =
-              game.votes === 1 ? "1 vote" : `${game.votes} votes`;
+  return (
+    <div>
+      <ol>
+        {gameReviews.map((game) => {
+          const voteMessage =
+            game.votes === 1 ? "1 vote" : `${game.votes} votes`;
 
-            const commentMessage =
-              Number(game.comment_count) === 1
-                ? "1 comment"
-                : `${game.comment_count} comments`;
+          const commentMessage =
+            Number(game.comment_count) === 1
+              ? "1 comment"
+              : `${game.comment_count} comments`;
 
-            return (
-              <Gamecard
-                game={game}
-                voteMessage={voteMessage}
-                commentMessage={commentMessage}
-                key={game.review_id}
-              ></Gamecard>
-            );
-          })}
-        </ol>
-      </div>
-    );
-  } else {
-    return <p>Loading, please wait...</p>;
-  }
+          return (
+            <Gamecard
+              game={game}
+              voteMessage={voteMessage}
+              commentMessage={commentMessage}
+              key={game.review_id}
+            ></Gamecard>
+          );
+        })}
+      </ol>
+    </div>
+  );
 };
 
 export default Reviews;

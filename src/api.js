@@ -15,3 +15,9 @@ export const getSingleReview = (ID) => {
     return info;
   });
 };
+
+export const getComments = (ID) => {
+  return mainAPI.get(`/reviews/${ID}/comments`).then((info) => {
+    return info;
+  });
+};
