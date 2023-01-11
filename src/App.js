@@ -13,8 +13,14 @@ function App() {
       <Routes>
         <Route path="/" element={<DisplayBody />}></Route>
         <Route path="/reviews" element={<Reviews />}></Route>
-        <Route path="/reviews/:review_id" element={<IndividualReview />}></Route>
-        <Route path = "/reviews/:review_id/comments" element = {<Comments/>}></Route>
+        <Route
+          path="/reviews/:review_id"
+          element={<IndividualReview />}
+        ></Route>
+        <Route
+          path="/reviews/:review_id/comments"
+          element={<Comments />}
+        ></Route>
       </Routes>
     </div>
   );

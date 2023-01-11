@@ -15,7 +15,7 @@ const Reviews = () => {
   if (Loading) return <p>Loading....</p>;
 
   return (
-    <div>
+    <div className="reviews">
       <ol>
         {gameReviews.map((game) => {
           const voteMessage =
