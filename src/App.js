@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Reviews from "./components/Reviews";
 import IndividualReview from "./components/IndividualReview";
 
+
 function App() {
   return (
     <div className="App">
@@ -12,7 +13,10 @@ function App() {
       <Routes>
         <Route path="/" element={<DisplayBody />}></Route>
         <Route path="/reviews" element={<Reviews />}></Route>
-        <Route path="/reviews/:review_id" element={<IndividualReview />}></Route>
+        <Route
+          path="/reviews/:review_id"
+          element={<IndividualReview />}
+        ></Route>
       </Routes>
     </div>
   );
