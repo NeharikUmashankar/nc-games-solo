@@ -5,12 +5,17 @@ import { getComments } from "../api";
 const Comments = () => {
   const { review_id } = useParams();
   const [comments, setComments] = useState(undefined);
+  const [commentLoad, setCommentLoad] = useState(true);
 
   useEffect(() => {
+    setCommentLoad(true);
     getComments(review_id).then((result) => {
       setComments(result.data.comments);
+      setCommentLoad(false);
     });
   }, []);
+
+  if (commentLoad) return <p>Comments loading, please wait....</p>;
 
   if (Array.isArray(comments)) {
     if (comments.length === 0) {
