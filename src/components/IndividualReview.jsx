@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getSingleReview } from "../api";
-import { Link } from "react-router-dom";
 import Comments from "./Comments";
-
 
 const IndividualReview = () => {
   const { review_id } = useParams();
@@ -45,10 +43,8 @@ const IndividualReview = () => {
         <br></br>
         <br></br>
         <h3>{voteMessage}</h3>
+        <h2 className="commentTitle">Join the conversation:</h2>
         <Comments propsID={singleReview.review_id}></Comments>
-        <Link to={`/reviews/${review_id}/comments`}>
-          <p>View comments in fullscreen</p>
-        </Link>
       </div>
     );
   }

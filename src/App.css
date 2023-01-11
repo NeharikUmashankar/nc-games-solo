@@ -47,6 +47,13 @@
   font-size: small;
 }
 
+.commentTitle{
+  text-align: left;
+  font-size: large;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
 .voteCount {
   text-align: left;
   font-size: small;

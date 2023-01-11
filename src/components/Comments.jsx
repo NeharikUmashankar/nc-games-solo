@@ -1,25 +1,17 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
 import { getComments } from "../api";
 
 const Comments = ({ propsID }) => {
-  let ID = undefined;
-  const { review_id } = useParams();
-
-  if (propsID !== undefined) {
-    ID = propsID;
-  } else {ID = review_id}
-  
   const [comments, setComments] = useState(undefined);
   const [commentLoad, setCommentLoad] = useState(true);
 
   useEffect(() => {
     setCommentLoad(true);
-    getComments(ID).then((result) => {
+    getComments(propsID).then((result) => {
       setComments(result.data.comments);
       setCommentLoad(false);
     });
-  }, []);
+  }, [propsID]);
 
   if (commentLoad) return <p>Comments loading, please wait....</p>;
 
@@ -28,10 +20,10 @@ const Comments = ({ propsID }) => {
       return <p>No comments</p>;
     } else {
       return (
-        <table className="comments">
+        <article className="comments">
           {comments.map((comment) => {
             return (
-              <article className="comment">
+              <article className="comment" key={comment.comment_id}>
                 <p className="commentAuthor">{comment.author}:</p>
                 <p>{comment.body}</p>
                 <p className="voteCount">Votes: {comment.votes}</p>
@@ -39,12 +31,10 @@ const Comments = ({ propsID }) => {
               </article>
             );
           })}
-        </table>
+        </article>
       );
     }
   }
-
-  return <p>Coming soon....</p>;
 };
 
 export default Comments;
