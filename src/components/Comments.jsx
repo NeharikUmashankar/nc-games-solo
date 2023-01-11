@@ -2,14 +2,20 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getComments } from "../api";
 
-const Comments = () => {
+const Comments = ({ propsID }) => {
+  let ID = undefined;
   const { review_id } = useParams();
+
+  if (propsID !== undefined) {
+    ID = propsID;
+  } else {ID = review_id}
+  
   const [comments, setComments] = useState(undefined);
   const [commentLoad, setCommentLoad] = useState(true);
 
   useEffect(() => {
     setCommentLoad(true);
-    getComments(review_id).then((result) => {
+    getComments(ID).then((result) => {
       setComments(result.data.comments);
       setCommentLoad(false);
     });
@@ -22,18 +28,18 @@ const Comments = () => {
       return <p>No comments</p>;
     } else {
       return (
-        <div className="comments">
+        <table className="comments">
           {comments.map((comment) => {
             return (
-              <div className="comment">
+              <article className="comment">
                 <p className="commentAuthor">{comment.author}:</p>
                 <p>{comment.body}</p>
                 <p className="voteCount">Votes: {comment.votes}</p>
                 <br></br>
-              </div>
+              </article>
             );
           })}
-        </div>
+        </table>
       );
     }
   }
