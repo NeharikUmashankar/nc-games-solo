@@ -16,7 +16,7 @@ const Reviews = () => {
 
   return (
     <div className="reviews">
-      <ol>
+      <ol className="reviewList">
         {gameReviews.map((game) => {
           const voteMessage =
             game.votes === 1 ? "1 vote" : `${game.votes} votes`;

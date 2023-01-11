@@ -38,7 +38,7 @@ const IndividualReview = () => {
     if (err) return <p>{err}</p>;
 
     return (
-      <div>
+      <div className="singleReview">
         <h2>{singleReview.title}</h2>
         <br></br>
         <h5>Category: {singleReview.category}</h5>

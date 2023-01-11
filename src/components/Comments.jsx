@@ -8,8 +8,10 @@ const Comments = ({ propsID }) => {
 
   if (propsID !== undefined) {
     ID = propsID;
-  } else {ID = review_id}
-  
+  } else {
+    ID = review_id;
+  }
+
   const [comments, setComments] = useState(undefined);
   const [commentLoad, setCommentLoad] = useState(true);
 
