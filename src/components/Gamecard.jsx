@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Gamecard = ({ game, voteMessage, commentMessage }) => {
   return (
-    <nav>
+    <nav className="review">
       <Link to={`/reviews/${game.review_id}`}>
         <section>
           <li className="gameCard">

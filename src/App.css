@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-image: url("https://newywithkids.com.au/wp-content/uploads/2019/09/FamilyBestBoardGames.jpg");
 }
 
 .App-logo {
@@ -24,22 +25,41 @@
   color: white;
 }
 
+.header {
+  background-color: bisque;
+}
+
 .gameImage {
   width: 50%;
   height: 50%;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: row;
 }
 
 .App-link {
   color: #61dafb;
 }
 
+.review {
+  padding: 5%;
+}
+
 .gameCard {
   border: 2px solid black;
   border-radius: 10%;
+  width: 400px;
+  height: 300px;
+  background-color: burlywood;
 }
 
 .singleReviewImage {
   width: 80%;
+}
+.singleReview {
+  background-color: white;
 }
 
 .commentAuthor {
@@ -59,6 +79,11 @@
   font-size: small;
 }
 .comments {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reviewList {
   display: flex;
   flex-wrap: wrap;
 }

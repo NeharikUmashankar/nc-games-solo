@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getComments } from "../api";
 
 const Comments = ({ propsID }) => {
+
   const [comments, setComments] = useState(undefined);
   const [commentLoad, setCommentLoad] = useState(true);
 

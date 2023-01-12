@@ -21,3 +21,10 @@ export const getComments = (ID) => {
     return info;
   });
 };
+
+export const patchVotes = (count, review_id) => {
+  const patchBody = {
+    inc_votes : count
+  }
+  return mainAPI.patch(`/reviews/${review_id}`, patchBody).then((result) => {return result})
+}

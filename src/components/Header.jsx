@@ -2,10 +2,15 @@ import { Link } from "react-router-dom";
 
 const Header = ({ header }) => {
   return (
-    <Link to={"/"}>
+    <div className="header">
+    <Link to={"/"} >
       {" "}
-      <h1>{header}</h1>
+      <h1 >{header}</h1>
+      <nav>
+      <Link to={"/reviews"}>See all reviews</Link>
+    </nav>
     </Link>
+    </div>
   );
 };
 
