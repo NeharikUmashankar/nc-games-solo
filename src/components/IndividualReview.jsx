@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getSingleReview } from "../api";
-import { Link } from "react-router-dom";
 import Comments from "./Comments";
 import { patchVotes } from "../api";
+
 
 const IndividualReview = () => {
   const { review_id } = useParams();
@@ -24,10 +24,10 @@ const IndividualReview = () => {
   if (singleReviewLoad) return <p>Review loading....</p>;
 
   if (singleReview !== undefined) {
-    const handleVote = (x) => {
-      setVotes(votes + x);
-      patchVotes(x, review_id).catch((err) => {
-        setVotes(votes - x);
+    const handleVote = (voteCount) => {
+      setVotes(votes + voteCount);
+      patchVotes(voteCount, review_id).catch((err) => {
+        setVotes(votes - voteCount);
         setErr("An error has occurred, please try again.");
       });
     };
@@ -58,6 +58,7 @@ const IndividualReview = () => {
         <br></br>
         <br></br>
         <h3>{voteMessage}</h3>
+
         <button
           onClick={() => {
             handleVote(1);
@@ -72,6 +73,8 @@ const IndividualReview = () => {
         >
           ⬇
         </button>{" "}
+
+        <h2 className="commentTitle">Join the conversation:</h2>
         <Comments propsID={singleReview.review_id}></Comments>
       </div>
     );
