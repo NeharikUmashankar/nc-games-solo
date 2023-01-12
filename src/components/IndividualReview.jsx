@@ -4,7 +4,6 @@ import { getSingleReview } from "../api";
 import Comments from "./Comments";
 import { patchVotes } from "../api";
 
-
 const IndividualReview = () => {
   const { review_id } = useParams();
   const [singleReviewLoad, setSingleReviewLoad] = useState(true);
@@ -58,7 +57,6 @@ const IndividualReview = () => {
         <br></br>
         <br></br>
         <h3>{voteMessage}</h3>
-
         <button
           onClick={() => {
             handleVote(1);
@@ -70,11 +68,11 @@ const IndividualReview = () => {
           onClick={() => {
             handleVote(-1);
           }}
+          className="voteButton"
         >
           ⬇
         </button>{" "}
-
-        <h2 className="commentTitle">Join the conversation:</h2>
+        <h3 className="commentHeader">Join the conversation:</h3>
         <Comments propsID={singleReview.review_id}></Comments>
       </div>
     );
