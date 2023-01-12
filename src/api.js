@@ -24,7 +24,21 @@ export const getComments = (ID) => {
 
 export const patchVotes = (count, review_id) => {
   const patchBody = {
-    inc_votes : count
-  }
-  return mainAPI.patch(`/reviews/${review_id}`, patchBody).then((result) => {return result})
-}
+    inc_votes: count,
+  };
+  return mainAPI.patch(`/reviews/${review_id}`, patchBody).then((result) => {
+    return result;
+  });
+};
+
+export const postComment = (text, review_id) => {
+  const commentBody = {
+    username: "cooljmessy",
+    body: text,
+  };
+  return mainAPI
+    .post(`/reviews/${review_id}/comments`, commentBody)
+    .then((result) => {
+      return result;
+    });
+};
