@@ -30,7 +30,7 @@ const Comments = ({ propsID }) => {
       return <p>No comments</p>;
     } else {
       return (
-        <table className="comments">
+        <article className="comments">
           {comments.map((comment) => {
             return (
               <article className="comment">
@@ -41,7 +41,7 @@ const Comments = ({ propsID }) => {
               </article>
             );
           })}
-        </table>
+        </article>
       );
     }
   }
