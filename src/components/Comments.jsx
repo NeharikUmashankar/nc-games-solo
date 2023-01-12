@@ -34,15 +34,14 @@ const Comments = ({ propsID }) => {
         setCommentError(
           "An error has occurred. Please refresh the page and try again."
         );
+        setComments(comments.slice(1))
+
         setNewCommentLoad(false);
       });
   };
 
   if (commentLoad) return <p>Comments loading, please wait....</p>;
   if (newCommentLoad) return <p>Comment uploading, please wait....</p>;
-  if (commentError) {
-    return <p>An error has occurred. Please refresh the page and try again.</p>;
-  }
 
   if (Array.isArray(comments)) {
     if (comments.length === 0) {
@@ -50,12 +49,14 @@ const Comments = ({ propsID }) => {
         <div>
           Be the first to comment:
           <form onSubmit={handleSubmit}>
-            <input
+            <textarea
               type="text"
               id="newComment"
               name="newComment"
               onChange={commentChange}
-            ></input>
+              required
+            ></textarea>
+            <br></br>
             <input type="submit" value="Add comment"></input>
           </form>
         </div>
@@ -64,12 +65,14 @@ const Comments = ({ propsID }) => {
       return (
         <article className="singleReview">
           <form onSubmit={handleSubmit} className="">
-            <input
+            <textarea
               type="text"
               id="newComment"
               name="newComment"
               onChange={commentChange}
-            ></input>
+              required
+            ></textarea>
+            <br></br>
             <input type="submit" value="Add comment"></input>
           </form>
           <br></br>
