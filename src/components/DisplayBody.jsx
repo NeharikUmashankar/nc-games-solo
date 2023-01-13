@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 
-const DisplayBody = () => {
+
+const DisplayBody = ({categories}) => {
   return (
     <div>
       <nav>
