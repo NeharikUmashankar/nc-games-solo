@@ -1,10 +1,10 @@
 // import categoryFinding function from api
 import { getCategories } from "../api";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Categories = () => {
-  const [categories, setCategories] = useState([]);
+const Categories = ({categories, setCategories}) => {
+  
 
   useEffect(() => {
     getCategories().then(({ data }) => {
@@ -17,10 +17,10 @@ const Categories = () => {
       <ol className="reviewList">
         {categories.map((category) => {
           return (
-            <nav>
+            <nav key = {category.slug}>
               <section>
-                <li className="gameCard">
-                  <Link to={`/categories/${category.slug}`}>
+                <li className="gameCard" >
+                  <Link to={`/categories/${category.slug}`} >
                     <h4>{category.slug}</h4>
                   </Link>
                   <br></br>
@@ -33,12 +33,6 @@ const Categories = () => {
       </ol>
     </div>
   );
-
-  // useEffect to get the categories, use state to store it
-
-  // use these to make a checkbox form
-
-  // pass these values via searchParams....either via a larger state or some other way?
 };
 
 export default Categories;

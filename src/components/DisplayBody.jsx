@@ -1,6 +1,6 @@
 
 
-const DisplayBody = () => {
+const DisplayBody = ({categories}) => {
   return (
     <div>
       <nav>
