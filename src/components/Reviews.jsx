@@ -6,6 +6,8 @@ import Gamecard from "./Gamecard";
 const Reviews = ({chosenCategory}) => {
   const [Loading, setLoading] = useState(true);
   const [gameReviews, setGamereviews] = useState([]);
+  const [sortedReviews, setSortedReviews] = useState([])
+  
   useEffect(() => {
     getReviews().then((result) => {
       setGamereviews(result.data.reviews);
@@ -15,6 +17,9 @@ const Reviews = ({chosenCategory}) => {
 
   if (Loading) return <p>Loading....</p>;
   if (chosenCategory !== undefined){
+
+
+
     return (
     <div className="reviews">
       <ol className="reviewList">
