@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getReviews } from "../api";
 import Gamecard from "./Gamecard";
+import Categories from "./Categories";
 
 const Reviews = () => {
   const [Loading, setLoading] = useState(true);
@@ -16,6 +17,7 @@ const Reviews = () => {
 
   return (
     <div className="reviews">
+      <Categories gameReviews = {gameReviews} setGamereviews = {setGamereviews}></Categories>
       <ol className="reviewList">
         {gameReviews.map((game) => {
           const voteMessage =
