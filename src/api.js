@@ -42,3 +42,9 @@ export const postComment = (text, review_id) => {
       return result;
     });
 };
+
+export const getCategories = () => {
+  return mainAPI.get("/categories").then((info) => {
+    return info;
+  });
+};
