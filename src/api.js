@@ -48,3 +48,9 @@ export const getCategories = () => {
     return info;
   });
 };
+
+// export const getSortedReviews = (sortB, value) => {
+//   const sortURL = `/reviews?${name}`
+// }
+
+// Create a function that can see whether different sort/order params are passed, and gives reviews accordingly
