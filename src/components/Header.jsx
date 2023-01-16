@@ -9,8 +9,6 @@ const Header = ({ header, categories, setCategories }) => {
     });
   }, []);
 
-  // Form in header that is generated via mapping the categories.
-  //The form has a submit button. On submit, you capture the searchParams value
   // Either this value or the URL as a whole can be used to make the API call.
 
   return (
@@ -28,14 +26,16 @@ const Header = ({ header, categories, setCategories }) => {
         <br></br>
         <br></br>
         <br></br>
-        <h4>View reviews by category:</h4>
+        <h4>Filter reviews by category:</h4>
+        <div>
         {categories.map((category) => {
           return (
             <Link to={`/categories/${category.slug}`} key={category.slug}>
-              <p>{category.slug}</p>
+              <p className="category">{category.slug}</p>
             </Link>
           );
         })}
+        </div>
       </nav>
     </div>
   );

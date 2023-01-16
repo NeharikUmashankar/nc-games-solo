@@ -17,6 +17,7 @@ function App() {
         categories={categories}
         setCategories = {setCategories}
       ></Header>
+      <br></br>
       <Routes>
         <Route path="/" element={<DisplayBody />}></Route>
         <Route path="/reviews" element={<Reviews />}></Route>

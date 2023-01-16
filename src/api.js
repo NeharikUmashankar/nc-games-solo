@@ -49,8 +49,15 @@ export const getCategories = () => {
   });
 };
 
-// export const getSortedReviews = (sortB, value) => {
-//   const sortURL = `/reviews?${name}`
-// }
+export const getSortedReviews = (body) => {
+  return mainAPI
+    .get("/reviews", {
+      params: body,
+    })
+    .then((info) => {
+      
+      return info.data.reviews;
+    });
+};
 
 // Create a function that can see whether different sort/order params are passed, and gives reviews accordingly

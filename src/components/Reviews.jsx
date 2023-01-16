@@ -46,7 +46,8 @@ const Reviews = ({ chosenCategory }) => {
 
   return (
     <article>
-      <ReviewSorter sortParameter = {sortParameter} setSortParameter = {setSortParameter} className="form" />
+      {console.log(gameReviews)}
+      <ReviewSorter  gameReviews setGamereviews={setGamereviews} className="form" />
       <div className="reviews">
         <ol className="reviewList">
           {gameReviews.map((game) => {
